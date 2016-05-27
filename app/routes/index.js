@@ -2,7 +2,9 @@
 
 var path = process.cwd();
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
-var TimestampHandler = require(path + '/app/controllers/timestampHandler.server.js');
+const TimestampHandler = require(path + '/app/controllers/timestampHandler.server.js')
+const WhoamiHandler = require(path + '/app/controllers/whoamiHandler.server.js')
+
 
 module.exports = function (app, passport) {
 
@@ -17,7 +19,6 @@ module.exports = function (app, passport) {
 	var clickHandler = new ClickHandler();
 
 	app.route('/')
-		//.get(isLoggedIn, function (req, res) {
 		.get(function (req, res) {
 			res.sendFile(path + '/public/index.html');
 		});
@@ -27,6 +28,12 @@ module.exports = function (app, passport) {
 
 	app.route('/timestamp/:timestamp')
 		.get(new TimestampHandler().getTimestamp)
+
+	app.route('/api/whoami')
+		.get(new WhoamiHandler().getWhoami);
+
+
+
 
 	app.route('/login')
 		.get(function (req, res) {
