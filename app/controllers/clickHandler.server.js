@@ -14,6 +14,9 @@ function ClickHandler () {
 			});
 	};
 
+	//collection.findAndModify({_id:'theId'}, <your sort opts>, {$setOnInsert:{foo: 'bar'}}, {new:true, upsert:true}, callback)
+
+
 	this.addClick = function (req, res) {
 		Users
 			.findOneAndUpdate({ 'github.id': req.user.github.id }, { $inc: { 'nbrClicks.clicks': 1 } })

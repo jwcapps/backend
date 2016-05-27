@@ -39,6 +39,11 @@ p {
 	padding: 0;
 }
 
+ul {
+	display:table;
+	margin: 0 auto;
+}
+
 /****** Header Styling ******/
 
 header p {

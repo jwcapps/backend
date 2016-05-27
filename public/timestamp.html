@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>TimestampMicroservice</title>
+
+	</head>
+
+	<body>
+		<div class="container">
+	    	<h1>Timestamp microservice</h1>
+		    <p>Add a timestamp to the URL as either a unix timestamp or a nautral language date.</p>
+			<h3>Example Usage:</h3>
+			<code id="natural"></code>
+			<br/>
+			<code id="unix"></code>
+		</div>
+
+		<script type="text/javascript">
+		    document.getElementById('natural').innerHTML = document.URL + "/December 15, 2015"
+		    document.getElementById('unix').innerHTML = document.URL + "/1450137600"
+		</script>
+	</body>
+
+</html>
