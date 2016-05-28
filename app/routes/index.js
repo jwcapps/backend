@@ -4,6 +4,7 @@ var path = process.cwd();
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 const TimestampHandler = require(path + '/app/controllers/timestampHandler.server.js')
 const WhoamiHandler = require(path + '/app/controllers/whoamiHandler.server.js')
+const URLHandler = require(path + '/app/controllers/URLHandler.server.js')
 
 
 module.exports = function (app, passport) {
@@ -31,6 +32,15 @@ module.exports = function (app, passport) {
 
 	app.route('/api/whoami')
 		.get(new WhoamiHandler().getWhoami);
+
+	app.route('/url')
+		.get((req, res) => res.sendFile(path + '/public/tinyurl.html'));
+
+	app.route(/\/url\/new\/(.+)/)
+		.get(new URLHandler().getURL)
+
+	app.route('/url/:id')
+		.get(new URLHandler().redirect);
 
 
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>URL Shortener Microservice</title>
+	</head>
+
+	<body>
+		<div class="container">
+	    	<h1>URL Shortener Microservice</h1>
+		    <p>Shorten a URL passed as a parameter.</p>
+			<h3>Example input:</h3>
+			<code id="input"></code>
+			<br/>
+			<h3>Example output:</h3>
+			<code id="output"></code>
+			<br/>
+			<h3>Usage:</h3>
+			<code id="usage"></code>
+			<br/>
+			<h3>Redirects to:</h3>
+			<code id="redirect"></code>
+		</div>
+
+		<script type="text/javascript">
+			const url = document.URL.replace(/\/$/, ""),
+				  redirect = "https://www.google.com",
+				  input = `${url}/new/${redirect}`,
+				  short = `${url}/2946`,
+				  output = `{ "original_url":"${redirect}", "short_url":"${short}" }`
+
+			let innerHTML = (element, text) => {
+				document.getElementById(element).innerHTML = text
+			}
+
+		    innerHTML('input', input)
+		    innerHTML('output', output)
+		    innerHTML('usage', short)
+		    innerHTML('redirect', redirect)
+		</script>
+	</body>
+
+</html>
