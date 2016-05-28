@@ -1,2 +1,0 @@
-mongod --smallfiles
-node server.jsnvm
